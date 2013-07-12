@@ -1,7 +1,8 @@
-<<<<<<< HEAD
-This is a Test App
-=======
-nogahighland
-============
-test readme
->>>>>>> bea12ab84c8539c8272748c160c34c7795d010c3
+This is a test app
+===================================
+* Coffee Script
+* Sass
+* Grunt
+** watch *.coffee and compile to another directory
+** same to *.sass
+** build for development and further optimazation for production
