@@ -35,9 +35,19 @@ module.exports = function(grunt) {
       }
     },
 
+    //copy files other than coffee and sass (mainly html and images, fonts if necessary)
+    copy: {
+      dist: {
+          files: [
+            { expand: true, dot: true, cwd: 'develop/app', dest: 'production/app', src: ['**/*.{ico,txt,html,png}'] },
+            { expand: true, dot: true, cwd: 'develop/lib', dest: 'production/lib', src: ['**/*'] },
+          ]
+      }  
+    },
+
     //jshint
     jshint: {
-        files: ['develop/**/*.js']
+        files: ['production/**/*.js']
     },
   });
 
@@ -49,8 +59,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-jshint");
   grunt.loadNpmTasks("grunt-contrib-compass");
   grunt.loadNpmTasks("grunt-contrib-cssmin");
+  grunt.loadNpmTasks("grunt-contrib-copy");
 
   //tasks
   grunt.registerTask('default', ['watch']);
-  grunt.registerTask('init', ['coffee', 'compass']);
+  grunt.registerTask('init', ['coffee', 'compass', 'copy']); //initialization for development
+  //grunt.registerTask('build', [tasks]); <- finalization for fully optimized build.
 };
