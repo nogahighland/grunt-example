@@ -62,7 +62,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-copy");
 
   //tasks
-  grunt.registerTask('default', ['watch']);
+  grunt.registerTask('watch', ['watch']);
   grunt.registerTask('init', ['coffee', 'compass', 'copy']); //initialization for development
   //grunt.registerTask('build', [tasks]); <- finalization for fully optimized build.
 };
