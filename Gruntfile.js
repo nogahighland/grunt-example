@@ -1,11 +1,15 @@
 module.exports = function(grunt) {
+  //load modules by matchdep. This searches dependencies from package.json
+  require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+
   //moduled tasks
   grunt.initConfig({
     //watch task. Depends on coffee, triggered change(save) of the file specified.
     watch : {
+
       //watch coffree
       coffee : {
-        files : 'develop/**/*.coffee',
+        files : 'development/**/*.coffee',
         tasks : ['coffee'],
       },
       // watch compass
@@ -51,18 +55,8 @@ module.exports = function(grunt) {
     },
   });
 
-  //modules
-  grunt.loadNpmTasks('grunt-contrib-coffee');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks("grunt-contrib-concat");
-  grunt.loadNpmTasks("grunt-contrib-uglify");
-  grunt.loadNpmTasks("grunt-contrib-jshint");
-  grunt.loadNpmTasks("grunt-contrib-compass");
-  grunt.loadNpmTasks("grunt-contrib-cssmin");
-  grunt.loadNpmTasks("grunt-contrib-copy");
-
   //tasks
-  grunt.registerTask('watch', ['watch']);
+  grunt.registerTask('default', ['watch']);
   grunt.registerTask('init', ['coffee', 'compass', 'copy']); //initialization for development
   //grunt.registerTask('build', [tasks]); <- finalization for fully optimized build.
 };
