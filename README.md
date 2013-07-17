@@ -9,10 +9,10 @@ Basing ideas on Yeoman.js.
 Instruction
 -------------------------------------
 * Preconditions
-** node.js is installed
-** grunt is installed
+ * node.js is installed
+ * grunt is installed
 * Clone this project on local
-** "git clone <URL>"
+ * "git clone <URL>"
 * Open terminal and move to this project
 * Type "npm install" and wait for complete installing all modules defined in Gruntfile.js
 * Type "grunt init" and comlied dev files are copied to production directory 
